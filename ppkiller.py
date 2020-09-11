@@ -1,29 +1,50 @@
 # package imports
 from tkinter import *
-import os
 from playsound import playsound
+import os, signal, subprocess, sys
 # local imports
 from subpp import process_exists
+from chromekiller import chromeKillSub
+from adobekiller import adobeKillSub
 # local global variables
 shyaboi = "shyaboi.mp3"
 #tk root function
 root = Tk()
 # child process fork
 # pid = os.fork()
+def googleKill():
+    chromeKillMessage = Label(root, text=f"Some google things were unning......wait no.....I killed them")
+    chromeKillSub()
+    chromeKillMessage.pack()
+    return
 
-import os, signal, subprocess
-import sys
-   
+def adobeKill():
+    adobeKillMessage = Label(root, text=f"Some Adobe things were unning......wait no.....I killed them")
+    adobeKillSub()
+    adobeKillMessage.pack()
+    return
+
+def enterKey(event):
+    print("You hit return.")
+    click()
+root.bind('<Return>', enterKey)
+
+
 def click():
     # shyaboi
+
     playsound(shyaboi)
     # text from entry
     killCommand = e.get()
     # check if sometrhing is running
     running = process_exists(killCommand+'.exe')
     if killCommand == "google":
-        print("there is many google things")
+        chromeKill()
         return
+    if killCommand == "adobe":
+        adobeKill()
+        return
+
     if running == True:
                 
         thing = Label(root, text=f"{killCommand} running......wait no.....I killed it")
@@ -35,14 +56,18 @@ def click():
         thingNot.pack()
         return
 #things to put on screen
-butt = Button(root, text="hot butt", padx=50, pady=50, command=click)
+aButt = Button(root, text="Adobe Killer", padx=5, pady=5, command=adobeKill)
+gButt = Button(root, text="Google Killer", padx=5, pady=5, command=googleKill)
+butt = Button(root, text="Input Killer", padx=5, pady=5, command=click)
 e = Entry(root, width=50 )
-entryQ = Label(root, text="What process do you want to kill with python today?")
+entryQ = Label(root, text="What program do you want to kill with python today?")
 
 #putting on screen functions
-butt.pack()
+aButt.pack()
+gButt.pack()
 entryQ.pack()
 e.pack()
+butt.pack()
 
 #main loop
 root.mainloop()
