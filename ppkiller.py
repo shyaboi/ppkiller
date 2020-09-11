@@ -72,7 +72,7 @@ def click():
         return
 #things to put on screen
 aButt = Button(root, text="Adobe Killer", padx=5, pady=5, command=adobeKill)
-gButt = Button(root, text="Google Killer", padx=5, pady=5, command=googleKill)
+gButt = Button(root, text="Google Killer", padx=5, pady=5, command=chromeKill)
 # nButt = Button(root, text="Nvidia Killer", padx=5, pady=5, command=nvidiaKill)
 tbButt = Button(root, text="TunnelBear Killer", padx=5, pady=5, command=tunnelBearKill)
 butt = Button(root, text="Input Killer", padx=5, pady=5, command=click)
