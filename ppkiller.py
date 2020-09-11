@@ -6,11 +6,15 @@ import os, signal, subprocess, sys
 from subpp import process_exists
 from chromekiller import chromeKillSub
 from adobekiller import adobeKillSub
-from nvidiakiller import nvidiaKillsub
+# from nvidiakiller import nvidiaKillsub
+from tunnelbearkiller import tunnelBearKillSub
+
 # local global variables
 shyaboi = "shyaboi.mp3"
-#tk root function
+#tk root function and atributes
 root = Tk()
+root.title("PPkiller")
+root.iconbitmap("logo.ico")
 # child process fork
 # pid = os.fork()
 def googleKill():
@@ -25,12 +29,16 @@ def adobeKill():
     adobeKillMessage.pack()
     return
 
-def nvidiaKill():
-    nvidiaKillMessage = Label(root, text=f"Some Adobe things were unning......wait no.....I killed them")
-    nvidiaKillsub()
-    nvidiaKillMessage.pack()
+# def nvidiaKill():
+#     nvidiaKillMessage = Label(root, text=f"Some Adobe things were unning......wait no.....I killed them")
+#     nvidiaKillsub()
+#     nvidiaKillMessage.pack()
+#     return
+def tunnelBearKill():
+    tbKillMessage = Label(root, text=f"Some Adobe things were unning......wait no.....I killed them")
+    tunnelBearKillSub()
+    tbKillMessage.pack()
     return
-
 def enterKey(event):
     print("You hit return.")
     click()
@@ -65,15 +73,17 @@ def click():
 #things to put on screen
 aButt = Button(root, text="Adobe Killer", padx=5, pady=5, command=adobeKill)
 gButt = Button(root, text="Google Killer", padx=5, pady=5, command=googleKill)
-nButt = Button(root, text="Nvidia Killer", padx=5, pady=5, command=nvidiaKill)
+# nButt = Button(root, text="Nvidia Killer", padx=5, pady=5, command=nvidiaKill)
+tbButt = Button(root, text="TunnelBear Killer", padx=5, pady=5, command=tunnelBearKill)
 butt = Button(root, text="Input Killer", padx=5, pady=5, command=click)
 e = Entry(root, width=50 )
 entryQ = Label(root, text="What program do you want to kill with python today?")
 
 #putting on screen functions
 aButt.pack()
-nButt.pack()
+# nButt.pack()
 gButt.pack()
+tbButt.pack()
 entryQ.pack()
 e.pack()
 butt.pack()

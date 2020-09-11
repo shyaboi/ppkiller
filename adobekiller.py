@@ -36,10 +36,10 @@ def adobeKillSub2():
 
 def adobeKillSub():
     adobeKillSub2()
-    time.sleep(.2)
+    time.sleep(.05)
     adobeKillSub2()
-    time.sleep(.2)
+    time.sleep(.05)
     adobeKillSub2()
-    time.sleep(.2)
+    time.sleep(.05)
     adobeKillSub2()
     print("adobe more or less dead")
