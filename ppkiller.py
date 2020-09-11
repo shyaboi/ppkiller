@@ -17,7 +17,7 @@ root.title("PPkiller")
 root.iconbitmap("logo.ico")
 # child process fork
 # pid = os.fork()
-def googleKill():
+def chromeKill():
     chromeKillMessage = Label(root, text=f"Some google things were unning......wait no.....I killed them")
     chromeKillSub()
     chromeKillMessage.pack()
