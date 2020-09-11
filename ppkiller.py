@@ -6,6 +6,7 @@ import os, signal, subprocess, sys
 from subpp import process_exists
 from chromekiller import chromeKillSub
 from adobekiller import adobeKillSub
+from nvidiakiller import nvidiaKillsub
 # local global variables
 shyaboi = "shyaboi.mp3"
 #tk root function
@@ -22,6 +23,12 @@ def adobeKill():
     adobeKillMessage = Label(root, text=f"Some Adobe things were unning......wait no.....I killed them")
     adobeKillSub()
     adobeKillMessage.pack()
+    return
+
+def nvidiaKill():
+    nvidiaKillMessage = Label(root, text=f"Some Adobe things were unning......wait no.....I killed them")
+    nvidiaKillsub()
+    nvidiaKillMessage.pack()
     return
 
 def enterKey(event):
@@ -58,12 +65,14 @@ def click():
 #things to put on screen
 aButt = Button(root, text="Adobe Killer", padx=5, pady=5, command=adobeKill)
 gButt = Button(root, text="Google Killer", padx=5, pady=5, command=googleKill)
+nButt = Button(root, text="Nvidia Killer", padx=5, pady=5, command=nvidiaKill)
 butt = Button(root, text="Input Killer", padx=5, pady=5, command=click)
 e = Entry(root, width=50 )
 entryQ = Label(root, text="What program do you want to kill with python today?")
 
 #putting on screen functions
 aButt.pack()
+nButt.pack()
 gButt.pack()
 entryQ.pack()
 e.pack()

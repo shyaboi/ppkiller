@@ -1,0 +1,1 @@
+Powershell.exe -File "%CD%\ok.ps1"
